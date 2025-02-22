@@ -31,6 +31,12 @@ pip install -r requirements.txt
 ### 4️⃣ Configure environment variables
 
 Create a .env file based on `./docs/deploy/environments/local.env` file and configure the parameters.
+> [!IMPORTANT]
+> It is important that the environment file should be named `.env`, if you are copying the `local.env`
+> file, make sure to remove the `local` initial string.
+
+> [!IMPORTANT]
+> The `.env` file should be in the root of the project.
 
 ### 5️⃣ Apply migrations and create a superuser
 
@@ -46,7 +52,8 @@ python manage.py createsuperuser
 docker run --name redis -p 6379:6379 -d redis
 
 # Celery
-celery -A config worker --loglevel=info --pool=solo
+# You can execute run_celery.bat file, or run the next command in the terminal:
+.\venv\Scripts\activate && celery -A config worker --loglevel=info --pool=solo
 
 # Django
 python manage.py runserver
