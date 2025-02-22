@@ -1,1 +1,1 @@
-.\venv\Scripts\activate && celery -A config worker --loglevel=info
+.\venv\Scripts\activate && celery -A config worker --loglevel=info --pool=solo
