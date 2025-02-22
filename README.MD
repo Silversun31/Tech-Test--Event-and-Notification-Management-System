@@ -1,4 +1,75 @@
-## Run Celery step by step:
+# 📌 **Event and Notification Management System**
+
+This project is a **REST API** built with **Django, DRF, and Celery** that allows managing events, registrations, and
+asynchronous notifications.
+
+## 🚀 **Installation and Execution**
+
+### **1️⃣ Clone the repository**
+
+```bash
+git clone https://github.com/Silversun31/Tech-Test--Event-and-Notification-Management-System
+cd "Tech-Test--Event-and-Notification-Management-System"
+```
+
+### 2️⃣ Create and activate a virtual environment
+
+```bash
+python -m venv venv
+# On linux
+source venv/bin/activate  
+# On Windows: 
+venv\Scripts\activate
+```
+
+### 3️⃣ Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4️⃣ Configure environment variables
+
+Create a .env file based on `./docs/deploy/environments/local.env` file and configure the parameters.
+
+### 5️⃣ Apply migrations and create a superuser
+
+```bash
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+### 6️⃣ Start the servers
+
+```bash
+# Redis
+docker run --name redis -p 6379:6379 -d redis
+
+# Celery
+celery -A config worker --loglevel=info --pool=solo
+
+# Django
+python manage.py runserver
+```
+
+### 7️⃣ Access the API
+
+* Swagger: http://127.0.0.1:8000/swagger/
+* Notifications: /api/notifications/
+* Events: /api/events/
+* Registrations: /api/registrations/
+
+---
+
+## 🧪 Running Tests
+
+```bash
+pytest
+```
+
+## Celery troubleshooting 🐇
+
+Running Celery step by step:
 
 ### Install redis:
 

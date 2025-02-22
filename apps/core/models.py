@@ -35,8 +35,8 @@ class SoftDeleteMixin(models.Model):
     is_deleted = models.BooleanField(default=False)
     deleted_at = models.DateTimeField(null=True, blank=True)
 
-    objects = SoftDeleteManager()  # Manager por defecto filtra eliminados
-    all_objects = models.Manager()  # Manager sin filtro (para obtener todo)
+    objects = SoftDeleteManager()
+    all_objects = models.Manager()
 
     def delete(self, *args, **kwargs):
         self.is_deleted = True

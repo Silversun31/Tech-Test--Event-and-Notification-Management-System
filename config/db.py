@@ -1,3 +1,5 @@
+import sys
+
 import environ
 from pathlib import Path
 
@@ -23,4 +25,14 @@ __POSTGRESQL = {
     }
 }
 
-DATABASE = __POSTGRESQL if env('DATABASE_HOST', default=None) else __SQLITE
+__PYTEST = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ":memory:",
+    }
+}
+
+if "pytest" in sys.argv[0]:
+    DATABASE = __PYTEST
+else:
+    DATABASE = __POSTGRESQL if env('DATABASE_HOST', default=None) else __SQLITE

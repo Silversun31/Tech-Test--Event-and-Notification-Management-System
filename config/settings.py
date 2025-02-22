@@ -39,6 +39,7 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1", "localhost"])
 
 PROJECT_APPS = [
     'apps.events',
+    'apps.notifications',
 ]
 
 INSTALLED_APPS = [
@@ -99,6 +100,7 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
+    "EXCEPTION_HANDLER": "apps.core.exceptions.custom_exception_handler",
 }
 
 # JWT Config
@@ -169,7 +171,7 @@ SWAGGER_SETTINGS = {
             "type": "apiKey",
             "name": "Authorization",
             "in": "header",
-            "description": "JWT Authentication token. Write 'Bearer <your_token>'",
+            "description": "JWT Authentication token. Example: Bearer <token>",
         }
     },
     "USE_SESSION_AUTH": False,
