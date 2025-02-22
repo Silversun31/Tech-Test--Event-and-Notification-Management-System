@@ -41,6 +41,7 @@ urlpatterns = [
 
     # Apps
     path("api/", include("apps.events.urls")),
+    path("api/", include("apps.notifications.urls")),
 
     # Redirect to swagger docs
     path('', lambda request: redirect('/swagger/', permanent=False)),

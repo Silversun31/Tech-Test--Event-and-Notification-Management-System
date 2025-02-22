@@ -39,6 +39,7 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["127.0.0.1", "localhost"])
 
 PROJECT_APPS = [
     'apps.events',
+    'apps.notifications',
 ]
 
 INSTALLED_APPS = [
