@@ -39,6 +39,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/auth/", include("apps.users.urls")),
 
+    # Apps
+    path("api/", include("apps.events.urls")),
+
     # Redirect to swagger docs
     path('', lambda request: redirect('/swagger/', permanent=False)),
     # Swagger docs
