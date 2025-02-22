@@ -170,7 +170,7 @@ SWAGGER_SETTINGS = {
             "type": "apiKey",
             "name": "Authorization",
             "in": "header",
-            "description": "JWT Authentication token. Write 'Bearer <your_token>'",
+            "description": "JWT Authentication token. Example: Bearer <token>",
         }
     },
     "USE_SESSION_AUTH": False,
